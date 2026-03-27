@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pressure Bar Bot Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f23; color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        h1 { text-align: center; color: #00d4ff; margin-bottom: 20px; font-size: 24px; }
+        .card { background: #1a1a2e; border-radius: 15px; padding: 20px; margin-bottom: 15px; border: 1px solid #333; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .card-title { font-size: 14px; color: #888; }
+        .card-value { font-size: 28px; font-weight: bold; color: #00d4ff; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+        .stat { background: #16213e; padding: 15px; border-radius: 10px; }
+        .stat-label { font-size: 12px; color: #888; }
+        .stat-value { font-size: 18px; font-weight: bold; margin-top: 5px; }
+        .stat-value.green { color: #00ff88; }
+        .stat-value.red { color: #ff4757; }
+        .position { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .position-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .position-type { font-size: 18px; font-weight: bold; }
+        .position-type.long { color: #00ff88; }
+        .position-type.short { color: #ff4757; }
+        .position-price { color: #888; font-size: 14px; }
+        .position-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .position-item { text-align: center; }
+        .position-label { font-size: 11px; color: #888; }
+        .position-value { font-size: 14px; font-weight: bold; margin-top: 3px; }
+        .trade-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #333; }
+        .trade-item:last-child { border-bottom: none; }
+        .trade-info { display: flex; align-items: center; gap: 10px; }
+        .trade-icon { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .trade-icon.win { background: #00ff8833; color: #00ff88; }
+        .trade-icon.lose { background: #ff475733; color: #ff4757; }
+        .trade-type { font-size: 14px; font-weight: bold; }
+        .trade-date { font-size: 12px; color: #888; }
+        .trade-pnl { font-size: 14px; font-weight: bold; }
+        .trade-pnl.win { color: #00ff88; }
+        .trade-pnl.lose { color: #ff4757; }
+        .summary { display: flex; justify-content: space-between; padding: 15px; background: #16213e; border-radius: 10px; margin-top: 10px; }
+        .summary-label { color: #888; font-size: 14px; }
+        .summary-value { font-size: 18px; font-weight: bold; color: #00ff88; }
+        .footer { text-align: center; color: #666; font-size: 12px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>☕ Pressure Bar Bot</h1>
+        
+        <!-- Account Overview -->
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Current Balance</div>
+                    <div class="card-value">$28.69</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="card-title">Starting</div>
+                    <div style="font-size: 18px; color: #888;">$30.58</div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Total Trades</div>
+                    <div class="stat-value">15</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Wins</div>
+                    <div class="stat-value green">7</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Win Rate</div>
+                    <div class="stat-value">46.7%</div>
+                </div>
+            </div>
+            <div class="summary">
+                <span class="summary-label">Total P&L</span>
+                <span class="summary-value">-$1.89</span>
+            </div>
+        </div>
+        
+        <!-- Active Position -->
+        <div class="card position">
+            <div class="position-header">
+                <span class="position-type long">LONG @ $2,156.25</span>
+                <span class="position-price">ETHUSDT</span>
+            </div>
+            <div class="position-details">
+                <div class="position-item">
+                    <div class="position-label">Entry</div>
+                    <div class="position-value">$2,156.25</div>
+                </div>
+                <div class="position-item">
+                    <div class="position-label">TP</div>
+                    <div class="position-value" style="color: #00ff88;">$2,199.38</div>
+                </div>
+                <div class="position-item">
+                    <div class="position-label">SL</div>
+                    <div class="position-value" style="color: #ff4757;">$2,134.69</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Trades -->
+        <div class="card">
+            <div class="card-title" style="margin-bottom: 15px;">Trade History (5 ล่าสุด)</div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div>
+                        <div class="trade-type">LONG</div>
+                        <div class="trade-date">2026-03-24</div>
+                    </div>
+                </div>
+                <div class="trade-pnl lose">-$1.27 (-4.74%)</div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div>
+                        <div class="trade-type">SHORT</div>
+                        <div class="trade-date">2026-03-23</div>
+                    </div>
+                </div>
+                <div class="trade-pnl lose">-$5.02 (-20.35%)</div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon win">✓</div>
+                    <div>
+                        <div class="trade-type">LONG</div>
+                        <div class="trade-date">2026-03-23</div>
+                    </div>
+                </div>
+                <div class="trade-pnl win">+$1.68 (+6.52%)</div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon win">✓</div>
+                    <div>
+                        <div class="trade-type">SHORT</div>
+                        <div class="trade-date">2026-03-23</div>
+                    </div>
+                </div>
+                <div class="trade-pnl win">+$3.27 (+12.74%)</div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon win">✓</div>
+                    <div>
+                        <div class="trade-type">SHORT</div>
+                        <div class="trade-date">2026-03-22</div>
+                    </div>
+                </div>
+                <div class="trade-pnl win">+$2.57 (+10.26%)</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            🤖 Pressure Bar Bot | Strategy: MACD + RSI | Timeframe: 15m
+        </div>
+    </div>
+</body>
+</html>
