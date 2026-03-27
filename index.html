@@ -20,6 +20,7 @@
         .stat-value.green { color: #00ff88; }
         .stat-value.red { color: #ff4757; }
         .position { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .no-position { text-align: center; padding: 20px; color: #888; }
         .position-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
         .position-type { font-size: 18px; font-weight: bold; }
         .position-type.long { color: #00ff88; }
@@ -40,17 +41,19 @@
         .trade-pnl { font-size: 14px; font-weight: bold; }
         .trade-pnl.win { color: #00ff88; }
         .trade-pnl.lose { color: #ff4757; }
+        .trade-entry { font-size: 12px; color: #888; }
         .summary { display: flex; justify-content: space-between; padding: 15px; background: #16213e; border-radius: 10px; margin-top: 10px; }
         .summary-label { color: #888; font-size: 14px; }
         .summary-value { font-size: 18px; font-weight: bold; color: #00ff88; }
         .footer { text-align: center; color: #666; font-size: 12px; margin-top: 20px; }
+        .strategy { text-align: center; color: #00d4ff; font-size: 12px; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>☕ Pressure Bar Bot</h1>
         
-        <!-- Account Overview -->
+        <!-- Account Overview - MACD Bot Only -->
         <div class="card">
             <div class="card-header">
                 <div>
@@ -65,107 +68,65 @@
             <div class="stats">
                 <div class="stat">
                     <div class="stat-label">Total Trades</div>
-                    <div class="stat-value">15</div>
+                    <div class="stat-value">2</div>
                 </div>
                 <div class="stat">
                     <div class="stat-label">Wins</div>
-                    <div class="stat-value green">7</div>
+                    <div class="stat-value green">1</div>
                 </div>
                 <div class="stat">
                     <div class="stat-label">Win Rate</div>
-                    <div class="stat-value">46.7%</div>
+                    <div class="stat-value">50%</div>
                 </div>
             </div>
             <div class="summary">
-                <span class="summary-label">Total P&L</span>
-                <span class="summary-value">-$1.89</span>
+                <span class="summary-label">Total P&L (MACD Bot)</span>
+                <span class="summary-value">+$3.20</span>
             </div>
         </div>
         
         <!-- Active Position -->
         <div class="card position">
             <div class="position-header">
-                <span class="position-type long">LONG @ $2,156.25</span>
-                <span class="position-price">ETHUSDT</span>
+                <span class="position-type">No Open Position</span>
             </div>
-            <div class="position-details">
-                <div class="position-item">
-                    <div class="position-label">Entry</div>
-                    <div class="position-value">$2,156.25</div>
-                </div>
-                <div class="position-item">
-                    <div class="position-label">TP</div>
-                    <div class="position-value" style="color: #00ff88;">$2,199.38</div>
-                </div>
-                <div class="position-item">
-                    <div class="position-label">SL</div>
-                    <div class="position-value" style="color: #ff4757;">$2,134.69</div>
-                </div>
+            <div class="no-position">
+                🤖 Bot is waiting for signal...
             </div>
         </div>
         
-        <!-- Recent Trades -->
+        <!-- Trade History -->
         <div class="card">
-            <div class="card-title" style="margin-bottom: 15px;">Trade History (5 ล่าสุด)</div>
+            <div class="card-title" style="margin-bottom: 15px;">Trade History (MACD Bot)</div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon win">✓</div>
+                    <div>
+                        <div class="trade-type">SHORT #1</div>
+                        <div class="trade-date">2026-03-27 15:28</div>
+                        <div class="trade-entry">$2,054.74 → $1,993.25</div>
+                    </div>
+                </div>
+                <div class="trade-pnl win">+$3.56 (+14.47%)</div>
+            </div>
             
             <div class="trade-item">
                 <div class="trade-info">
                     <div class="trade-icon lose">✕</div>
                     <div>
-                        <div class="trade-type">LONG</div>
-                        <div class="trade-date">2026-03-24</div>
+                        <div class="trade-type">SHORT #2</div>
+                        <div class="trade-date">2026-03-27 21:23</div>
+                        <div class="trade-entry">$1,972.90 → $1,979.25</div>
                     </div>
                 </div>
-                <div class="trade-pnl lose">-$1.27 (-4.74%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon lose">✕</div>
-                    <div>
-                        <div class="trade-type">SHORT</div>
-                        <div class="trade-date">2026-03-23</div>
-                    </div>
-                </div>
-                <div class="trade-pnl lose">-$5.02 (-20.35%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon win">✓</div>
-                    <div>
-                        <div class="trade-type">LONG</div>
-                        <div class="trade-date">2026-03-23</div>
-                    </div>
-                </div>
-                <div class="trade-pnl win">+$1.68 (+6.52%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon win">✓</div>
-                    <div>
-                        <div class="trade-type">SHORT</div>
-                        <div class="trade-date">2026-03-23</div>
-                    </div>
-                </div>
-                <div class="trade-pnl win">+$3.27 (+12.74%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon win">✓</div>
-                    <div>
-                        <div class="trade-type">SHORT</div>
-                        <div class="trade-date">2026-03-22</div>
-                    </div>
-                </div>
-                <div class="trade-pnl win">+$2.57 (+10.26%)</div>
+                <div class="trade-pnl lose">-$0.36 (-2.11%)</div>
             </div>
         </div>
         
         <div class="footer">
             🤖 Pressure Bar Bot | Strategy: MACD + RSI | Timeframe: 15m
+            <div class="strategy">Leverage: 5x | TP: 10% | SL: 5%</div>
         </div>
     </div>
 </body>
