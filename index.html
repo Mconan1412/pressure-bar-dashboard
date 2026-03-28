@@ -26,12 +26,14 @@
         .trade-icon { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
         .trade-icon.win { background: #00ff8833; color: #00ff88; }
         .trade-icon.lose { background: #ff475733; color: #ff4757; }
+        .trade-detail { display: flex; flex-direction: column; }
         .trade-type { font-size: 14px; font-weight: bold; }
         .trade-date { font-size: 12px; color: #888; }
-        .trade-pnl { font-size: 14px; font-weight: bold; }
-        .trade-pnl.win { color: #00ff88; }
-        .trade-pnl.lose { color: #ff4757; }
-        .trade-entry { font-size: 12px; color: #888; }
+        .trade-pnl-text { font-size: 14px; font-weight: bold; }
+        .trade-pnl-text.win { color: #00ff88; }
+        .trade-pnl-text.lose { color: #ff4757; }
+        .trade-pnl-value { font-size: 12px; color: #888; }
+        .trade-right { text-align: right; }
         .summary { display: flex; justify-content: space-between; padding: 15px; background: #16213e; border-radius: 10px; margin-top: 10px; }
         .summary-label { color: #888; font-size: 14px; }
         .summary-value { font-size: 18px; font-weight: bold; color: #ff4757; }
@@ -52,7 +54,7 @@
                 <div class="stat"><div class="stat-label">Wins</div><div class="stat-value green">1</div></div>
                 <div class="stat"><div class="stat-label">Win Rate</div><div class="stat-value">25%</div></div>
             </div>
-            <div class="summary"><span class="summary-label">Total P&L</span><span class="summary-value">+$2.24</span></div>
+            <div class="summary"><span class="summary-label">Total P&L</span><span class="summary-value">+$1.83</span></div>
         </div>
         
         <div class="card">
@@ -61,54 +63,62 @@
         </div>
         
         <div class="card">
-            <div class="card-title" style="margin-bottom: 15px;">Trade History</div>
+            <div class="card-title" style="margin-bottom: 15px;">Trade History (ล่าสุดอยู่ด้านบน)</div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div class="trade-detail">
+                        <div class="trade-type">SHORT #4</div>
+                        <div class="trade-date">2026-03-28 11:08</div>
+                    </div>
+                </div>
+                <div class="trade-right">
+                    <div class="trade-pnl-text lose">-5.39%</div>
+                    <div class="trade-pnl-value">-$1.12</div>
+                </div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div class="trade-detail">
+                        <div class="trade-type">SHORT #3</div>
+                        <div class="trade-date">2026-03-28 09:18</div>
+                    </div>
+                </div>
+                <div class="trade-right">
+                    <div class="trade-pnl-text lose">-1.61%</div>
+                    <div class="trade-pnl-value">-$0.25</div>
+                </div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div class="trade-detail">
+                        <div class="trade-type">SHORT #2</div>
+                        <div class="trade-date">2026-03-27 21:23</div>
+                    </div>
+                </div>
+                <div class="trade-right">
+                    <div class="trade-pnl-text lose">-2.11%</div>
+                    <div class="trade-pnl-value">-$0.36</div>
+                </div>
+            </div>
             
             <div class="trade-item">
                 <div class="trade-info">
                     <div class="trade-icon win">✓</div>
-                    <div>
+                    <div class="trade-detail">
                         <div class="trade-type">SHORT #1</div>
                         <div class="trade-date">2026-03-27 15:28</div>
-                        <div class="trade-entry">$2,054.74 → $1,993.25</div>
                     </div>
                 </div>
-                <div class="trade-pnl win">+$3.56 (+14.47%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon lose">✕</div>
-                    <div>
-                        <div class="trade-type">SHORT #2</div>
-                        <div class="trade-date">2026-03-27 21:23</div>
-                        <div class="trade-entry">$1,972.90 → $1,979.25</div>
-                    </div>
+                <div class="trade-right">
+                    <div class="trade-pnl-text win">+14.47%</div>
+                    <div class="trade-pnl-value">+$3.56</div>
                 </div>
-                <div class="trade-pnl lose">-$0.36 (-2.11%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon lose">✕</div>
-                    <div>
-                        <div class="trade-type">SHORT #3</div>
-                        <div class="trade-date">2026-03-28 09:18</div>
-                        <div class="trade-entry">$1,984.99 → $1,989.38</div>
-                    </div>
-                </div>
-                <div class="trade-pnl lose">-$0.25 (-1.61%)</div>
-            </div>
-            
-            <div class="trade-item">
-                <div class="trade-info">
-                    <div class="trade-icon lose">✕</div>
-                    <div>
-                        <div class="trade-type">SHORT #4</div>
-                        <div class="trade-date">2026-03-28 11:08</div>
-                        <div class="trade-entry">$1,986.09 → $2,005.50</div>
-                    </div>
-                </div>
-                <div class="trade-pnl lose">-$1.12 (-5.39%)</div>
             </div>
         </div>
         
