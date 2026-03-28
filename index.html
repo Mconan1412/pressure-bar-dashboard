@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pressure Bar Bot Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #0f0f23; color: #fff; min-height: 100vh; padding: 20px; }
@@ -21,7 +20,6 @@
         .stat-value.green { color: #00ff88; }
         .stat-value.red { color: #ff4757; }
         .position { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
-        .no-position { text-align: center; padding: 20px; color: #888; }
         .position-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
         .position-type { font-size: 18px; font-weight: bold; }
         .position-type.long { color: #00ff88; }
@@ -48,18 +46,29 @@
         .summary-value { font-size: 18px; font-weight: bold; color: #00ff88; }
         .footer { text-align: center; color: #666; font-size: 12px; margin-top: 20px; }
         .strategy { text-align: center; color: #00d4ff; font-size: 12px; margin-top: 5px; }
+        .open-position { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .open-label { font-size: 12px; color: #888; margin-bottom: 10px; }
+        .open-row { display: flex; justify-content: space-between; align-items: center; }
+        .open-type { font-size: 20px; font-weight: bold; color: #ff4757; }
+        .open-entry { font-size: 14px; color: #888; }
+        .open-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .open-item { text-align: center; }
+        .open-item-label { font-size: 11px; color: #888; }
+        .open-item-value { font-size: 14px; font-weight: bold; margin-top: 3px; }
+        .open-item-value.tp { color: #00ff88; }
+        .open-item-value.sl { color: #ff4757; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>☕ Pressure Bar Bot</h1>
         
-        <!-- Account Overview - MACD Bot Only -->
+        <!-- Account Overview -->
         <div class="card">
             <div class="card-header">
                 <div>
                     <div class="card-title">Current Balance</div>
-                    <div class="card-value">$28.69</div>
+                    <div class="card-value">$28.25</div>
                 </div>
                 <div style="text-align: right;">
                     <div class="card-title">Starting</div>
@@ -69,7 +78,7 @@
             <div class="stats">
                 <div class="stat">
                     <div class="stat-label">Total Trades</div>
-                    <div class="stat-value">2</div>
+                    <div class="stat-value">3</div>
                 </div>
                 <div class="stat">
                     <div class="stat-label">Wins</div>
@@ -77,28 +86,41 @@
                 </div>
                 <div class="stat">
                     <div class="stat-label">Win Rate</div>
-                    <div class="stat-value">50%</div>
+                    <div class="stat-value">33%</div>
                 </div>
             </div>
             <div class="summary">
-                <span class="summary-label">Total P&L (MACD Bot)</span>
-                <span class="summary-value">+$3.20</span>
+                <span class="summary-label">Total P&L</span>
+                <span class="summary-value">-$2.33</span>
             </div>
         </div>
         
-        <!-- Active Position -->
-        <div class="card position">
-            <div class="position-header">
-                <span class="position-type">No Open Position</span>
+        <!-- Open Position -->
+        <div class="card open-position">
+            <div class="open-label">📍 OPEN POSITION</div>
+            <div class="open-row">
+                <span class="open-type">SHORT</span>
+                <span class="open-entry">Entry: $1,986.09</span>
             </div>
-            <div class="no-position">
-                🤖 Bot is waiting for signal...
+            <div class="open-details">
+                <div class="open-item">
+                    <div class="open-item-label">Size</div>
+                    <div class="open-item-value">0.058 ETH</div>
+                </div>
+                <div class="open-item">
+                    <div class="open-item-label">TP</div>
+                    <div class="open-item-value tp">$1,946.37</div>
+                </div>
+                <div class="open-item">
+                    <div class="open-item-label">SL</div>
+                    <div class="open-item-value sl">$2,005.95</div>
+                </div>
             </div>
         </div>
         
         <!-- Trade History -->
         <div class="card">
-            <div class="card-title" style="margin-bottom: 15px;">Trade History (MACD Bot)</div>
+            <div class="card-title" style="margin-bottom: 15px;">Trade History</div>
             
             <div class="trade-item">
                 <div class="trade-info">
@@ -122,6 +144,18 @@
                     </div>
                 </div>
                 <div class="trade-pnl lose">-$0.36 (-2.11%)</div>
+            </div>
+            
+            <div class="trade-item">
+                <div class="trade-info">
+                    <div class="trade-icon lose">✕</div>
+                    <div>
+                        <div class="trade-type">SHORT #3</div>
+                        <div class="trade-date">2026-03-28 09:18</div>
+                        <div class="trade-entry">$1,984.99 → $1,989.38</div>
+                    </div>
+                </div>
+                <div class="trade-pnl lose">-$0.25 (-1.61%)</div>
             </div>
         </div>
         
